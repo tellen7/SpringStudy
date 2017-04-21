@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
+	
+	<bean id="injectionDao" class="com.laowang.dao.InjectionDAOImp"/>
+	<bean id="injectionservice" class="com.laowang.service.InjectionServiceImp"/>
+<!-- <property name="injectiondao" ref="injectionDao"></property>通过设置自动装配，就不用单独为bean装配了 -->
+</beans>

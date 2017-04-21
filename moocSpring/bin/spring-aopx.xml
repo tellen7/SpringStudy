@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<bean id="service" class="com.laowang.aopy.Service"/>
+	<bean id="aspect" class="com.laowang.aopy.Aspect"/>
+	
+	<aop:config>
+		<aop:aspect id="firstAspect" ref="aspect">
+			<aop:pointcut expression="execution(* com.laowang.aopy.Service.*(..))" id="mypointcut"/>
+			<aop:before method="before" pointcut-ref="mypointcut"/>
+			<aop:after method="after" pointcut-ref="mypointcut"/>
+			<aop:after-returning method="afterReturn" pointcut-ref="mypointcut"/>
+			<aop:after-throwing method="afterThrow" pointcut-ref="mypointcut"/>
+			<aop:around method="around" pointcut-ref="mypointcut"/>
+			<aop:around method="aroundinit" pointcut="execution(* com.laowang.aopy.Service.init(String,int))
+								and args(name, id)"/>
+			<aop:declare-parents types-matching="com.laowang.aopy.*(+)" 
+								implement-interface="com.laowang.aopy.Filter"
+								default-impl="com.laowang.aopy.FilterImpl"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
