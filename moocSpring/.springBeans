@@ -13,6 +13,7 @@
 		<config>src/spring-autowire.xml</config>
 		<config>src/spring-annotationBase.xml</config>
 		<config>src/spring-aopx.xml</config>
+		<config>src/spring-aop.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
