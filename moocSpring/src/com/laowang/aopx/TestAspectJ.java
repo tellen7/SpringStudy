@@ -27,4 +27,5 @@ public class TestAspectJ extends BasedTest{
 		ServiceMine service = getBean("serviceMine");
 		service.throwing();
 	}
+	
 }
